@@ -1,0 +1,4 @@
+---
+- hosts: infrastructure-servers
+  roles:
+    - common

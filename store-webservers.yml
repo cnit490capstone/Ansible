@@ -1,0 +1,5 @@
+---
+- hosts: store-webservers
+  roles:
+    - common
+    - web

@@ -1,0 +1,4 @@
+---
+- hosts: store-firewalls
+  roles:
+    - store-firewalls

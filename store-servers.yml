@@ -1,0 +1,4 @@
+---
+- hosts: store-servers
+  roles:
+    - store-servers

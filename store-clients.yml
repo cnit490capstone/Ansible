@@ -1,0 +1,4 @@
+---
+- hosts: store-clients
+  roles:
+    - windows-storeclient

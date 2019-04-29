@@ -1,0 +1,7 @@
+---
+- import_playbook: store-webservers.yml
+- import_playbook: store-clients.yml
+- import_playbook: infrastructure-servers.yml
+- import_playbook: store-servers.yml
+- import_playbook: store-firewalls.yml
+- import_playbook: store-switches.yml

@@ -1,0 +1,4 @@
+---
+- hosts: store-switches
+  roles:
+    - store-switches

@@ -1,0 +1,15 @@
+---
+- name: Copy config to firewall
+  copy:
+    src: files/config.xml
+    dest: /cf/conf/config.xml
+    owner: root
+    group: admins
+    mode: "u=rw,g=rw,o=r"
+    force: yes
+  become: yes
+- name: Remove cache to reload config
+  file:
+    path: /tmp/config.cache
+    state: absent
+  become: yes

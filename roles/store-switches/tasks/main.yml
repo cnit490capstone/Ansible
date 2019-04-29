@@ -1,0 +1,5 @@
+---
+- name: Install pica config file
+  copy: src={{config_file}} dest={{config_dir}}/{{config_file}} mode=0644
+  notify: load_config
+  become: yes

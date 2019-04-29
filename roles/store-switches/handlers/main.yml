@@ -1,0 +1,4 @@
+---
+- name: load_config
+  command: /pica/bin/cli -c "configure;load override {{config_dir}}/{{config_file}};commit"
+  become: yes

@@ -1,0 +1,4 @@
+---
+  ansible_ssh_user: ansible
+  ansible_ssh_pass: Pa$$w0rd
+  ansible_become_pass: Pa$$w0rd

@@ -1,0 +1,7 @@
+---
+  ext_ntp1: 0.north-america.pool.ntp.org
+  ext_ntp2: 1.north-america.pool.ntp.org
+  ext_ntp3: 2.north-america.pool.ntp.org
+  ext_ntp4: 3.north-america.pool.ntp.org
+  ntp_subnet: 192.168.0.0
+  ntp_subnetmask: 255.255.0.0

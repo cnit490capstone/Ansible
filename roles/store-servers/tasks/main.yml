@@ -1,0 +1,52 @@
+---
+#  - name: Update all packages
+#    yum:
+#      name: '*'
+#      state: latest
+#    become: yes
+  - name: Install core packages
+    yum:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - ntp
+      - vim
+      - dhcp
+      - bind
+    become: yes
+  - name: Update yum cache
+    yum:
+      update_cache: yes
+    become: yes
+  - name: Ensure NTP service is running and configured
+    systemd:
+      name: ntpd
+      state: started
+      enabled: yes
+    tags: ntp
+    become: yes
+  - template:
+      src: server.ntp.conf.j2
+      dest: /etc/ntp.conf
+    notify:
+      - restart ntpd
+    tags: ntp
+    become: yes
+  - name: Ensure DHCP service is running
+    systemd:
+      name: dhcpd
+      state: started
+      enabled: yes
+    become: yes
+  - name: Ensure DNS service is running
+    systemd:
+      name: named
+      state: started
+      enabled: yes
+    become: yes
+  - name: Ensure SSH service is running
+    systemd:
+      name: sshd
+      state: started
+      enabled: yes
+    become: yes

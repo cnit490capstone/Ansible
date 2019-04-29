@@ -1,0 +1,17 @@
+---
+  - name: Hide Ansible service account from login screen
+    win_regedit:
+      path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList
+      name: svc_ansible
+      data: 0
+      type: dword
+  - name: Update all apps
+    win_chocolatey:
+      name: all
+      state: latest
+  - name: Install required apps
+    win_chocolatey:
+      name:
+      - firefox
+      - javaruntime
+      state: present

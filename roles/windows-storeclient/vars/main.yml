@@ -1,0 +1,9 @@
+---
+  clientntp: tag-dns-dhcp-ntp.target.local
+  ansible_user: svc_ansible
+  ansible_password: Pa$$w0rd
+  ansible_connection: winrm
+  ansible_winrm_cert_pem: /home/ansible/win_public.pem
+  ansible_winrm_cert_key_pem: /home/ansible/win_private.pem
+  ansible_winrm_transport: certificate
+  ansible_winrm_server_cert_validation: ignore

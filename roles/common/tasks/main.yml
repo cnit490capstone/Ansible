@@ -1,0 +1,29 @@
+---
+#  - name: Update all packages
+#    yum:
+#      name: '*'
+#      state: latest
+#    become: yes
+  - name: Install core packages
+    yum:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - ntp
+      - vim
+    become: yes
+  - name: Ensure NTP service is running
+    systemd:
+      name: ntpd
+      state: started
+      enabled: yes
+    become: yes
+    tags: ntp
+  - name: Ensure NTP is configured
+    template:
+      src: client.ntp.conf.j2
+      dest: /etc/ntp.conf
+    notify:
+      - restart ntpd
+    tags: ntp
+    become: yes
